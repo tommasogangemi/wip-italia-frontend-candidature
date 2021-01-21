@@ -3,9 +3,31 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+			rel="stylesheet"
+		/>
+
 		<script type="text/javascript" src="app.js" defer></script>
 		<title>WIP Italia Frontend Candidature</title>
 	</head>
-	<body></body>
+	<body>
+		<nav class="navbar">
+			<h1 class="title">WIP</h1>
+			<div class="nav-links">
+				<div class="buttons">
+					<button class="nav-link" name="2">POST 2</button>
+					<button class="nav-link" name="3">POST 3</button>
+					<button class="nav-link" name="7">POST 7</button>
+				</div>
+				<span class="nav-link" id="remover">REMOVE POSTS</span>
+			</div>
+		</nav>
+		<main>
+			<div id="cards-holder"></div>
+		</main>
+	</body>
 </html>

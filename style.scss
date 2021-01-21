@@ -2,4 +2,43 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+button {
+	border: none;
+	background: none;
+	outline: none;
+	font-size: 16px;
+}
+
+.navbar {
+	min-height: 10vh;
+	padding: 0px 16px;
+	background: lightgrey;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.nav-link {
+		margin: 0 12px;
+		padding: 2px 4px;
+		cursor: pointer;
+	}
+
+	#remover {
+		background: rgb(141, 39, 39);
+		margin: unset;
+		padding: 4px 12px;
+	}
+}
+
+main {
+	min-height: 90vh;
 }
