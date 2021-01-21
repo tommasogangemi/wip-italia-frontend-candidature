@@ -1,6 +1,7 @@
 const cardTrigger = document.querySelector('.buttons');
 const cardsHolder = document.querySelector('#cards-holder');
 const remover = document.querySelector('#remover');
+
 const fetchUrl = 'https://jsonplaceholder.typicode.com/posts/';
 
 let displayedCards = [];
@@ -34,7 +35,6 @@ const removeCard = event => {
 	if (target.classList[0] === 'close-card') {
 		const id = target.getAttribute('data-sku');
 		displayedCards = displayedCards.filter(itm => itm !== id);
-		console.log(displayedCards);
 		target.parentElement.remove();
 	}
 };
@@ -46,22 +46,23 @@ const removeAllCards = () => {
 };
 
 const fetchPost = async event => {
-	const { name } = event.target;
+	const identifier = event.target.getAttribute('data-sku');
 
-	const isAlreadyDisplayed = displayedCards.find(item => item === name);
+	const isAlreadyDisplayed = displayedCards.find(item => item === identifier);
 
 	if (isAlreadyDisplayed) {
 		return;
 	}
 
-	const response = await fetch(fetchUrl + name);
-	const post = await response.json();
-	displayedCards.push(name);
-	const { title, body, id } = post;
+	const response = await fetch(fetchUrl + identifier);
+	const content = await response.json();
+	const { title, body, id } = content;
+
+	displayedCards.push(identifier);
 	createCard(title, body, id);
 };
 
 //event listeners
 cardTrigger.addEventListener('click', fetchPost);
-remover.addEventListener('click', removeAllCards);
 cardsHolder.addEventListener('click', removeCard);
+remover.addEventListener('click', removeAllCards);
