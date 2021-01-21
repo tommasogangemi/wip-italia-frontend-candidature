@@ -1,6 +1,6 @@
 const cardTrigger = document.querySelector('.buttons');
 const cardsHolder = document.querySelector('#cards-holder');
-const removePosts = document.querySelector('#remover');
+const remover = document.querySelector('#remover');
 
 const tempPost = {
 	userId: 1,
@@ -27,12 +27,30 @@ const createPostCard = () => {
 	cardBody.classList.add('card-body');
 	cardBody.innerText = body;
 	card.appendChild(cardBody);
+	//close card
+	const closeCard = document.createElement('span');
+	closeCard.classList.add('close-card');
+	closeCard.innerText = 'Remove this article';
+	card.appendChild(closeCard);
+};
+
+const removeCard = event => {
+	const { target } = event;
+	if (target.classList[0] === 'close-card') {
+		target.parentElement.remove();
+	}
+};
+
+const removeAllCards = () => {
+	const cards = document.querySelectorAll('.card');
+	cards.forEach(itm => itm.remove());
 };
 
 const fetchPost = event => {
-	console.log(event.target.name);
 	createPostCard();
 };
 
 //event listeners
 cardTrigger.addEventListener('click', fetchPost);
+remover.addEventListener('click', removeAllCards);
+cardsHolder.addEventListener('click', removeCard);

@@ -49,17 +49,30 @@ main {
 		.card {
 			width: 30%;
 			background: lightblue;
+			display: flex;
+			flex-direction: column;
 			margin: 16px;
 			padding: 16px;
 
 			.card-title {
 				text-transform: uppercase;
-				margin: 8px auto 24px;
+				margin: 8px auto 24px 0;
 			}
 
 			.card-body {
-				margin: 16px auto;
+				font-style: italic;
+				margin: 16px 0;
 				padding-right: 24px;
+			}
+
+			.close-card {
+				text-decoration: underline;
+				cursor: pointer;
+				margin: 16px 0px 0px auto;
+
+				&:hover {
+					text-decoration: none;
+				}
 			}
 		}
 	}
