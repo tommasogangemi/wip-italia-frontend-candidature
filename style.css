@@ -52,7 +52,31 @@ button {
   padding: 4px 12px;
 }
 
-main {
+main #cards-holder {
   min-height: 90vh;
+  padding: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #cards-holder .card {
+  width: 30%;
+  background: lightblue;
+  margin: 16px;
+  padding: 16px;
+}
+
+main #cards-holder .card .card-title {
+  text-transform: uppercase;
+  margin: 8px auto 24px;
+}
+
+main #cards-holder .card .card-body {
+  margin: 16px auto;
+  padding-right: 24px;
 }
 /*# sourceMappingURL=style.css.map */

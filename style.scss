@@ -40,5 +40,27 @@ button {
 }
 
 main {
-	min-height: 90vh;
+	#cards-holder {
+		min-height: 90vh;
+		padding: 24px;
+		display: flex;
+		align-items: center;
+
+		.card {
+			width: 30%;
+			background: lightblue;
+			margin: 16px;
+			padding: 16px;
+
+			.card-title {
+				text-transform: uppercase;
+				margin: 8px auto 24px;
+			}
+
+			.card-body {
+				margin: 16px auto;
+				padding-right: 24px;
+			}
+		}
+	}
 }
