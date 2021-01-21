@@ -64,7 +64,8 @@ main #cards-holder {
 }
 
 main #cards-holder .card {
-  width: 30%;
+  max-width: 30%;
+  height: 75vh;
   background: lightblue;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -73,25 +74,27 @@ main #cards-holder .card {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 16px;
   padding: 16px;
 }
 
 main #cards-holder .card .card-title {
   text-transform: uppercase;
-  margin: 8px auto 24px 0;
 }
 
 main #cards-holder .card .card-body {
   font-style: italic;
-  margin: 16px 0;
   padding-right: 24px;
 }
 
 main #cards-holder .card .close-card {
   text-decoration: underline;
   cursor: pointer;
-  margin: 16px 0px 0px auto;
+  margin-right: 0;
+  margin-left: auto;
 }
 
 main #cards-holder .card .close-card:hover {

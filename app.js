@@ -1,18 +1,12 @@
 const cardTrigger = document.querySelector('.buttons');
 const cardsHolder = document.querySelector('#cards-holder');
 const remover = document.querySelector('#remover');
+const fetchUrl = 'https://jsonplaceholder.typicode.com/posts/';
 
-const tempPost = {
-	userId: 1,
-	id: 2,
-	title: 'qui est esse',
-	body:
-		'est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla',
-};
-const { title, body } = tempPost;
+let displayedCards = [];
 
 //functions
-const createPostCard = () => {
+const createCard = (title, body, id) => {
 	//card
 	const card = document.createElement('div');
 	card.classList.add('card');
@@ -30,6 +24,7 @@ const createPostCard = () => {
 	//close card
 	const closeCard = document.createElement('span');
 	closeCard.classList.add('close-card');
+	closeCard.setAttribute('data-sku', id);
 	closeCard.innerText = 'Remove this article';
 	card.appendChild(closeCard);
 };
@@ -37,6 +32,9 @@ const createPostCard = () => {
 const removeCard = event => {
 	const { target } = event;
 	if (target.classList[0] === 'close-card') {
+		const id = target.getAttribute('data-sku');
+		displayedCards = displayedCards.filter(itm => itm !== id);
+		console.log(displayedCards);
 		target.parentElement.remove();
 	}
 };
@@ -44,10 +42,23 @@ const removeCard = event => {
 const removeAllCards = () => {
 	const cards = document.querySelectorAll('.card');
 	cards.forEach(itm => itm.remove());
+	displayedCards = [];
 };
 
-const fetchPost = event => {
-	createPostCard();
+const fetchPost = async event => {
+	const { name } = event.target;
+
+	const isAlreadyDisplayed = displayedCards.find(item => item === name);
+
+	if (isAlreadyDisplayed) {
+		return;
+	}
+
+	const response = await fetch(fetchUrl + name);
+	const post = await response.json();
+	displayedCards.push(name);
+	const { title, body, id } = post;
+	createCard(title, body, id);
 };
 
 //event listeners
