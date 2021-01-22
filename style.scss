@@ -5,18 +5,28 @@
 	font-family: 'Poppins', sans-serif;
 }
 
+body {
+	background: linear-gradient(to top right, #338ad4, #37faac);
+	color: rgb(40, 40, 40);
+}
+
 .navbar {
 	min-height: 10vh;
 	padding: 0px 16px;
-	background: lightgrey;
+	background: rgba(255, 255, 255, 0.6);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 
-	.nav-links {
+	.nav-links,
+	.buttons {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+	}
+
+	.buttons {
+		list-style: none;
 	}
 
 	.nav-link {
@@ -26,7 +36,10 @@
 	}
 
 	#remover {
-		background: rgb(141, 39, 39);
+		background: linear-gradient(to top right, #33d4c3, #338ad4);
+		border: 1px solid #44cbeb;
+		border-radius: 4px;
+		color: ivory;
 		margin: unset;
 		padding: 4px 12px;
 	}
@@ -40,9 +53,14 @@ main {
 		align-items: center;
 
 		.card {
+			background: linear-gradient(
+				to top right,
+				rgba(255, 255, 255, 0.4),
+				rgba(255, 255, 255, 0.6)
+			);
+			border-radius: 16px;
 			max-width: 30%;
 			height: 75vh;
-			background: lightblue;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;

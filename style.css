@@ -6,10 +6,16 @@
   font-family: 'Poppins', sans-serif;
 }
 
+body {
+  background: -webkit-gradient(linear, left bottom, right top, from(#338ad4), to(#37faac));
+  background: linear-gradient(to top right, #338ad4, #37faac);
+  color: #282828;
+}
+
 .navbar {
   min-height: 10vh;
   padding: 0px 16px;
-  background: lightgrey;
+  background: rgba(255, 255, 255, 0.6);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,7 +27,8 @@
           align-items: center;
 }
 
-.navbar .nav-links {
+.navbar .nav-links,
+.navbar .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,6 +38,10 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.navbar .buttons {
+  list-style: none;
 }
 
 .navbar .nav-link {
@@ -40,7 +51,11 @@
 }
 
 .navbar #remover {
-  background: #8d2727;
+  background: -webkit-gradient(linear, left bottom, right top, from(#33d4c3), to(#338ad4));
+  background: linear-gradient(to top right, #33d4c3, #338ad4);
+  border: 1px solid #44cbeb;
+  border-radius: 4px;
+  color: ivory;
   margin: unset;
   padding: 4px 12px;
 }
@@ -57,9 +72,11 @@ main #cards-holder {
 }
 
 main #cards-holder .card {
+  background: -webkit-gradient(linear, left bottom, right top, from(rgba(255, 255, 255, 0.4)), to(rgba(255, 255, 255, 0.6)));
+  background: linear-gradient(to top right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.6));
+  border-radius: 16px;
   max-width: 30%;
   height: 75vh;
-  background: lightblue;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
