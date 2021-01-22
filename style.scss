@@ -16,6 +16,8 @@ body {
 }
 
 #title {
+	cursor: default;
+	pointer-events: none;
 	width: 8vw;
 	background: rgba(255, 255, 255, 0.6);
 	display: flex;
@@ -109,6 +111,7 @@ body {
 	}
 
 	#title {
+		pointer-events: auto;
 		background: #9bedff;
 		width: 20vw;
 		z-index: 1;
@@ -117,7 +120,7 @@ body {
 	.navbar {
 		width: 80vw;
 		background: #9bedff;
-		// transform: translateX(-100%);
+		transform: translateX(-100%);
 		transition: all 0.5s ease;
 
 		.nav-links,
@@ -128,6 +131,10 @@ body {
 		.nav-link {
 			margin: 0 4px;
 		}
+	}
+
+	.slide {
+		transform: translateX(0%);
 	}
 
 	#cards-holder {

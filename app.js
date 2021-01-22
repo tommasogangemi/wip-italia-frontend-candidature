@@ -1,6 +1,9 @@
 const cardTrigger = document.querySelector('.buttons');
 const cardsHolder = document.querySelector('#cards-holder');
 const remover = document.querySelector('#remover');
+const companyTitle = document.querySelector('#title');
+const navBar = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('.nav-link');
 
 const fetchUrl = 'https://jsonplaceholder.typicode.com/posts/';
 
@@ -62,7 +65,12 @@ const fetchPost = async event => {
 	createCard(title, body, id);
 };
 
+const slideNavbar = () => {
+	navBar.classList.toggle('slide');
+};
+
 //event listeners
 cardTrigger.addEventListener('click', fetchPost);
 cardsHolder.addEventListener('click', removeCard);
 remover.addEventListener('click', removeAllCards);
+companyTitle.addEventListener('click', slideNavbar);
