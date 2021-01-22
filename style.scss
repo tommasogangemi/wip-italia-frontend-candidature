@@ -10,12 +10,25 @@ body {
 	color: rgb(40, 40, 40);
 }
 
-.navbar {
+.top-bar {
+	display: flex;
 	min-height: 10vh;
+}
+
+#title {
+	width: 8vw;
+	background: rgba(255, 255, 255, 0.6);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.navbar {
+	width: 92vw;
 	padding: 0px 16px;
 	background: rgba(255, 255, 255, 0.6);
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
 
 	.nav-links,
@@ -45,47 +58,86 @@ body {
 	}
 }
 
-main {
-	#cards-holder {
-		min-height: 90vh;
-		padding: 24px;
-		display: flex;
-		align-items: center;
+#cards-holder {
+	min-height: 90vh;
+	padding: 24px;
+	display: flex;
+	align-items: center;
+}
 
-		.card {
-			background: linear-gradient(
-				to top right,
-				rgba(255, 255, 255, 0.4),
-				rgba(255, 255, 255, 0.6)
-			);
-			border-radius: 16px;
-			max-width: 30%;
-			height: 75vh;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			margin: 16px;
-			padding: 16px;
+.card {
+	background: linear-gradient(
+		to top right,
+		rgba(255, 255, 255, 0.4),
+		rgba(255, 255, 255, 0.6)
+	);
+	border-radius: 16px;
+	max-width: 30%;
+	height: 75vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 16px;
+	padding: 16px;
 
-			.card-title {
-				text-transform: uppercase;
-			}
+	.card-title {
+		text-transform: uppercase;
+	}
 
-			.card-body {
-				font-style: italic;
-				padding-right: 24px;
-			}
+	.card-body {
+		font-style: italic;
+		padding-right: 24px;
+	}
 
-			.close-card {
-				text-decoration: underline;
-				cursor: pointer;
-				margin-right: 0;
-				margin-left: auto;
+	.close-card {
+		text-decoration: underline;
+		cursor: pointer;
+		margin-right: 0;
+		margin-left: auto;
 
-				&:hover {
-					text-decoration: none;
-				}
-			}
+		&:hover {
+			text-decoration: none;
 		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.top-bar {
+		position: fixed;
+		top: 0;
+		min-height: 8vh;
+	}
+
+	#title {
+		background: #9bedff;
+		width: 20vw;
+		z-index: 1;
+	}
+
+	.navbar {
+		width: 80vw;
+		background: #9bedff;
+		// transform: translateX(-100%);
+		transition: all 0.5s ease;
+
+		.nav-links,
+		#remover {
+			font-size: 10px;
+		}
+
+		.nav-link {
+			margin: 0 4px;
+		}
+	}
+
+	#cards-holder {
+		margin-top: 10vh;
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	.card {
+		max-width: 100%;
+		max-height: 65vh;
 	}
 }

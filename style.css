@@ -12,16 +12,37 @@ body {
   color: #282828;
 }
 
-.navbar {
+.top-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   min-height: 10vh;
+}
+
+#title {
+  width: 8vw;
+  background: rgba(255, 255, 255, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.navbar {
+  width: 92vw;
   padding: 0px 16px;
   background: rgba(255, 255, 255, 0.6);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -60,7 +81,7 @@ body {
   padding: 4px 12px;
 }
 
-main #cards-holder {
+#cards-holder {
   min-height: 90vh;
   padding: 24px;
   display: -webkit-box;
@@ -71,7 +92,7 @@ main #cards-holder {
           align-items: center;
 }
 
-main #cards-holder .card {
+.card {
   background: -webkit-gradient(linear, left bottom, right top, from(rgba(255, 255, 255, 0.4)), to(rgba(255, 255, 255, 0.6)));
   background: linear-gradient(to top right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.6));
   border-radius: 16px;
@@ -91,23 +112,61 @@ main #cards-holder .card {
   padding: 16px;
 }
 
-main #cards-holder .card .card-title {
+.card .card-title {
   text-transform: uppercase;
 }
 
-main #cards-holder .card .card-body {
+.card .card-body {
   font-style: italic;
   padding-right: 24px;
 }
 
-main #cards-holder .card .close-card {
+.card .close-card {
   text-decoration: underline;
   cursor: pointer;
   margin-right: 0;
   margin-left: auto;
 }
 
-main #cards-holder .card .close-card:hover {
+.card .close-card:hover {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .top-bar {
+    position: fixed;
+    top: 0;
+    min-height: 8vh;
+  }
+  #title {
+    background: #9bedff;
+    width: 20vw;
+    z-index: 1;
+  }
+  .navbar {
+    width: 80vw;
+    background: #9bedff;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  .navbar .nav-links,
+  .navbar #remover {
+    font-size: 10px;
+  }
+  .navbar .nav-link {
+    margin: 0 4px;
+  }
+  #cards-holder {
+    margin-top: 10vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow: hidden;
+  }
+  .card {
+    max-width: 100%;
+    max-height: 65vh;
+  }
 }
 /*# sourceMappingURL=style.css.map */
