@@ -12,7 +12,7 @@ body {
 
 .top-bar {
 	display: flex;
-	min-height: 10vh;
+	height: 10vh;
 }
 
 #title {
@@ -60,11 +60,15 @@ body {
 	}
 }
 
+main {
+	height: 90vh;
+}
+
 #cards-holder {
-	min-height: 90vh;
 	padding: 24px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 
 .card {
@@ -75,7 +79,7 @@ body {
 	);
 	border-radius: 16px;
 	max-width: 30%;
-	height: 75vh;
+	height: 65vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -107,7 +111,7 @@ body {
 	.top-bar {
 		position: fixed;
 		top: 0;
-		min-height: 8vh;
+		height: 8vh;
 	}
 
 	#title {
@@ -137,14 +141,16 @@ body {
 		transform: translateX(0%);
 	}
 
-	#cards-holder {
+	main {
 		margin-top: 10vh;
+		overflow: scroll;
+	}
+
+	#cards-holder {
 		flex-direction: column;
-		overflow: hidden;
 	}
 
 	.card {
 		max-width: 100%;
-		max-height: 65vh;
 	}
 }
