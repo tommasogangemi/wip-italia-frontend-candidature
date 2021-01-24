@@ -3,7 +3,6 @@ const cardsHolder = document.querySelector('#cards-holder');
 const remover = document.querySelector('#remover');
 const companyTitle = document.querySelector('#title');
 const navBar = document.querySelector('.navbar');
-const navLinks = document.querySelectorAll('.nav-link');
 
 const fetchUrl = 'https://jsonplaceholder.typicode.com/posts/';
 
@@ -35,9 +34,9 @@ const createCard = (title, body, id) => {
 
 const removeCard = event => {
 	const { target } = event;
-	if (target.classList[0] === 'close-card') {
+	if (target.classList.contains('close-card')) {
 		const id = target.getAttribute('data-sku');
-		displayedCards = displayedCards.filter(itm => itm !== id);
+		displayedCards.splice(displayedCards.indexOf(id));
 		target.parentElement.remove();
 	}
 };
@@ -51,18 +50,22 @@ const removeAllCards = () => {
 const fetchPost = async event => {
 	const identifier = event.target.getAttribute('data-sku');
 
-	const isAlreadyDisplayed = displayedCards.find(item => item === identifier);
+	const isAlreadyDisplayed = displayedCards.some(item => item === identifier);
 
 	if (isAlreadyDisplayed) {
 		return;
 	}
 
-	const response = await fetch(fetchUrl + identifier);
-	const content = await response.json();
-	const { title, body, id } = content;
+	try {
+		const response = await fetch(fetchUrl + identifier);
+		const content = await response.json();
+		const { title, body, id } = content;
 
-	displayedCards.push(identifier);
-	createCard(title, body, id);
+		displayedCards.push(identifier);
+		createCard(title, body, id);
+	} catch (err) {
+		console.log(err.message);
+	}
 };
 
 const slideNavbar = () => {
