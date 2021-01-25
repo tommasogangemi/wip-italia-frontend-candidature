@@ -36,7 +36,8 @@ const removeCard = event => {
 	const { target } = event;
 	if (target.classList.contains('close-card')) {
 		const id = target.getAttribute('data-sku');
-		displayedCards.splice(displayedCards.indexOf(id));
+		displayedCards.splice(displayedCards.indexOf(id), 1);
+		console.log(displayedCards);
 		target.parentElement.remove();
 	}
 };
@@ -63,6 +64,7 @@ const fetchPost = async event => {
 
 		displayedCards.push(identifier);
 		createCard(title, body, id);
+		console.log(displayedCards);
 	} catch (err) {
 		console.log(err.message);
 	}

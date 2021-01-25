@@ -65,6 +65,7 @@ main {
 }
 
 #cards-holder {
+	height: 100%;
 	padding: 24px;
 	display: flex;
 	align-items: center;
@@ -147,6 +148,7 @@ main {
 	}
 
 	#cards-holder {
+		height: unset;
 		flex-direction: column;
 	}
 

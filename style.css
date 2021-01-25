@@ -88,6 +88,7 @@ main {
 }
 
 #cards-holder {
+  height: 100%;
   padding: 24px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -176,6 +177,7 @@ main {
     overflow: scroll;
   }
   #cards-holder {
+    height: unset;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
